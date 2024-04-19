@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public abstract class BaseServiceImpl <E,Id, R extends BaseRepository<E, Id>> implements BaseService<E, Id> {
 
-    private R repository;
+    protected R repository;
 
     public BaseServiceImpl(R r){
         this.repository = r;

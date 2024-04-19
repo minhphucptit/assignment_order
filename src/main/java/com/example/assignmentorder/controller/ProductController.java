@@ -21,6 +21,13 @@ public class ProductController {
         return ResponseEntity.ok().body(products);
     }
 
+    @GetMapping("/filter")
+    public ResponseEntity<List<Product>> filterProduct(@RequestBody Product product) {
+        List<Product> products = productService.findByProductDetail(product);
+        return ResponseEntity.ok().body(products);
+    }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") Integer id) {
         var productOpt = productService.findById(id);
